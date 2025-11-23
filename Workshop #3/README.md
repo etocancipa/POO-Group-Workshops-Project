@@ -1,5 +1,7 @@
 This is the third workshop for POO Class.
-This workshops goes around SOLID principles
+
+
+This workshop goes around SOLID principles
 
 AUTHORS:
 
