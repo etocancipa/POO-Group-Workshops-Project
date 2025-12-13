@@ -2,6 +2,9 @@
 
 https://www.youtube.com/watch?v=zyHnQsU8XeU
 
+## UPDATED VIDEO (New changes):
+https://www.youtube.com/watch?v=7pjaQMILNS0
+
 # Smart Home Electronics Simulator – OOP Project
 
 This project is a Smart Home Electronics Simulator developed for an Object-Oriented Programming (OOP) course. It models different rooms of a house, each containing multiple electronic devices, organized by category and functionality. The objective of the project is to demonstrate the application of OOP principles such as inheritance, polymorphism, encapsulation, class hierarchy design, and modular architecture.
