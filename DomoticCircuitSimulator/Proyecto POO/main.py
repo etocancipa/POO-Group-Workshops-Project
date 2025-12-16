@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 import os
 import json
@@ -60,26 +61,32 @@ class MainWindow(QMainWindow):
 
         self.window_initialized = False
 
+        # This if allows to find the images when you download the code from a external path.
+        if getattr(sys, 'frozen', False):
+            self.base_dir = os.path.dirname(sys.executable)
+        else:
+            self.base_dir = os.path.dirname(os.path.abspath(__file__))
+
         # ---------------- BACKGROUND IMAGES (HOUSE / ROOMS) ----------------
         self.background_images = {
-            "menu": "House.jpg",
-            "Living_room": "Living_room.png",
-            "Kitchen": "Kitchen.png",
-            "room": "Room.png",
+            "menu": os.path.join(self.base_dir, "House.jpg"),
+            "Living_room": os.path.join(self.base_dir, "Living_room.png"),
+            "Kitchen": os.path.join(self.base_dir, "Kitchen.png"),
+            "room": os.path.join(self.base_dir, "Room.png"),
         }
         self.current_image = "menu"
 
         # ---------------- AVAILABLE COMPONENT TYPES ----------------
         self.component_files = {
-            "Lamp": "Desk Lamp OFF.png",
-            "Radio": "Radio.png",
-            "Bulb": "Bulb OFF.png",
-            "Heat Sensor": "Heat Sensor.png",
-            "Computer": "PC OFF.png",
-            "Voltage Source": "Voltage Source.png",
-            "TV": "TV OFF.png",
-            "Motion Sensor": "Motion Sensor.png",
-            "Living Room Lamp": "Lamp Living Room OFF.png",
+            "Lamp": os.path.join(self.base_dir, "Desk Lamp OFF.png"),
+            "Radio": os.path.join(self.base_dir, "Radio.png"),
+            "Bulb": os.path.join(self.base_dir, "Bulb OFF.png"),
+            "Heat Sensor": os.path.join(self.base_dir, "Heat Sensor.png"),
+            "Computer": os.path.join(self.base_dir, "PC OFF.png"),
+            "Voltage Source": os.path.join(self.base_dir, "Voltage Source.png"),
+            "TV": os.path.join(self.base_dir, "TV OFF.png"),
+            "Motion Sensor": os.path.join(self.base_dir, "Motion Sensor.png"),
+            "Living Room Lamp": os.path.join(self.base_dir, "Lamp Living Room OFF.png"),
         }
 
         # ---------------- ROOMS AND DEVICE STORAGE ----------------
@@ -101,11 +108,11 @@ class MainWindow(QMainWindow):
         self.positions_file = "posiciones_dispositivos.json"
 
         # ---------------- SOUNDS ----------------
-        self.alarm_sound = QSound("Security Alarm.wav")
-        self.tv_sound = QSound("TV sound.wav")
-        self.radio_sound = QSound("Radio Static.wav")
-        self.pc_sound = QSound("Computer Typing.wav")
-        self.heat_alarm_sound = QSound("Fire Alarm.wav")
+        self.alarm_sound = QSound(os.path.join(self.base_dir,"Security Alarm.wav"))
+        self.tv_sound = QSound(os.path.join(self.base_dir,"TV sound.wav"))
+        self.radio_sound = QSound(os.path.join(self.base_dir,"Radio Static.wav"))
+        self.pc_sound = QSound(os.path.join(self.base_dir,"Computer Typing.wav"))
+        self.heat_alarm_sound = QSound(os.path.join(self.base_dir,"Fire Alarm.wav"))
 
         # ---------------- MOTION SENSOR TIMERS ----------------
         self.motion_sensor_delay_ms = 3000

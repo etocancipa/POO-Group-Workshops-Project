@@ -1,21 +1,3 @@
-from electronic_component import ElectronicComponent
-
-
-class Resistance(ElectronicComponent):
-    # LSP (Liskov Substitution Principle): this class can replace its parent ElectronicComponent without breaking behavior.
-    def __init__(self, name, voltage, polarized, connected, resistance):
-        super().__init__(name, voltage, polarized, connected)
-        self.resistance = resistance  # Keeps the original logic
-
-
-    def dividesVoltage(self):
-        voltage = self.voltage / self.resistance
-
-
-    def protectsComponents(self):
-        print("Components have been protected")
-
-
 
 # Gives energy for electric components
 class Plug:
@@ -31,3 +13,20 @@ class Plug:
 
     def connectionCables(self):
         print("Cables connected to plug")
+
+
+class Cables:
+    #  SRP: only handles cable behavior.
+    def _init_(self, positive_color:str, negative_color:str):
+        self.positive = False
+        self.negative = False
+        self.positive_color = positive_color
+        self.negative_color = negative_color
+
+
+    def connectPositiveCable(self):
+        print("Positive cable connected")
+
+
+    def connectNegativeCable(self):
+        print("Negative cable connected")
